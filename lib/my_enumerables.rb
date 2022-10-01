@@ -72,4 +72,14 @@ class Array
     end
     true
   end
+
+  def my_count
+    return length unless block_given?
+
+    count = 0
+    self.each do |item|
+      count += 1 if yield(item)
+    end
+    count
+  end
 end
