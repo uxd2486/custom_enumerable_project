@@ -41,4 +41,19 @@ class Array
     end
     new_array
   end
+
+  def my_all?
+    self.each do |item |
+      if block_given?
+        unless yield(item)
+          return false
+        end
+      else
+        unless item
+          return false
+        end
+      end
+    end
+    true
+  end
 end
