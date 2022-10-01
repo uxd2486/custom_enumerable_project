@@ -65,4 +65,11 @@ class Array
     end
     false
   end
+
+  def my_none?
+    self.each do |item|
+      return false if yield(item)
+    end
+    true
+  end
 end
