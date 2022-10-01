@@ -56,4 +56,13 @@ class Array
     end
     true
   end
+
+  def my_any?(&obj)
+    self.each do | item |
+      if obj.call(item)
+        return true
+      end
+    end
+    false
+  end
 end
