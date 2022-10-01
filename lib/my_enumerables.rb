@@ -82,4 +82,16 @@ class Array
     end
     count
   end
+
+  def my_map(&obj)
+    map = []
+    self.each do |item|
+      if block_given?
+        map << yield(item)
+      else
+        map << obj.call(item)
+      end
+    end
+    map
+  end
 end
